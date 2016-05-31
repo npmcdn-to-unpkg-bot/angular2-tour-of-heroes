@@ -8,7 +8,6 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "target": "es2015"
+    "suppressImplicitAnyIndexErrors": true
   }
 }

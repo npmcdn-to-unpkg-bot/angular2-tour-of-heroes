@@ -1,7 +1,9 @@
 "use strict";
-class InMemoryDataService {
-    createDb() {
-        let heroes = [
+var InMemoryDataService = (function () {
+    function InMemoryDataService() {
+    }
+    InMemoryDataService.prototype.createDb = function () {
+        var heroes = [
             { id: 11, name: 'Mr. Nice' },
             { id: 12, name: 'Narco' },
             { id: 13, name: 'Bombasto' },
@@ -14,8 +16,9 @@ class InMemoryDataService {
             { id: 20, name: 'Tornado' }
         ];
         return { heroes: heroes };
-    }
-}
+    };
+    return InMemoryDataService;
+}());
 exports.InMemoryDataService = InMemoryDataService;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

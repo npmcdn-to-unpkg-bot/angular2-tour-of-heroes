@@ -8,32 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_deprecated_1 = require('@angular/router-deprecated');
-const hero_service_1 = require('./hero.service');
-let DashboardComponent = class DashboardComponent {
-    constructor(router, heroService) {
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var hero_service_1 = require('./hero.service');
+var DashboardComponent = (function () {
+    function DashboardComponent(router, heroService) {
         this.router = router;
         this.heroService = heroService;
         this.heroes = [];
     }
-    ngOnInit() {
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.heroService.getHeroes()
-            .then(heroes => this.heroes = heroes.slice(1, 5));
-    }
-    gotoDetail(hero) {
-        let link = ['HeroDetail', { id: hero.id }];
+            .then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
+    };
+    DashboardComponent.prototype.gotoDetail = function (hero) {
+        var link = ['HeroDetail', { id: hero.id }];
         this.router.navigate(link);
-    }
-};
-DashboardComponent = __decorate([
-    core_1.Component({
-        selector: 'my-dashboard',
-        templateUrl: 'app/dashboard.component.html',
-        styleUrls: ['app/dashboard.component.css']
-    }), 
-    __metadata('design:paramtypes', [router_deprecated_1.Router, hero_service_1.HeroService])
-], DashboardComponent);
+    };
+    DashboardComponent = __decorate([
+        core_1.Component({
+            selector: 'my-dashboard',
+            templateUrl: 'app/dashboard.component.html',
+            styleUrls: ['app/dashboard.component.css']
+        }), 
+        __metadata('design:paramtypes', [router_deprecated_1.Router, hero_service_1.HeroService])
+    ], DashboardComponent);
+    return DashboardComponent;
+}());
 exports.DashboardComponent = DashboardComponent;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

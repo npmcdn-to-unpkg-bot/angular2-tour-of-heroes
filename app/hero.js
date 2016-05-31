@@ -1,6 +1,9 @@
 "use strict";
-class Hero {
-}
+var Hero = (function () {
+    function Hero() {
+    }
+    return Hero;
+}());
 exports.Hero = Hero;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
