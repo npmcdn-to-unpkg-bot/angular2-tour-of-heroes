@@ -8,70 +8,69 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+const core_1 = require('@angular/core');
+const http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var HeroService = (function () {
-    function HeroService(http) {
+let HeroService = class HeroService {
+    constructor(http) {
         this.http = http;
         this.heroesUrl = 'app/heroes'; // URL to web api
     }
-    HeroService.prototype.getHeroes = function () {
+    getHeroes() {
         return this.http.get(this.heroesUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(response => response.json().data)
             .catch(this.handleError);
-    };
-    HeroService.prototype.getHero = function (id) {
+    }
+    getHero(id) {
         return this.getHeroes()
-            .then(function (heroes) { return heroes.filter(function (hero) { return hero.id === id; })[0]; });
-    };
-    HeroService.prototype.save = function (hero) {
+            .then(heroes => heroes.filter(hero => hero.id === id)[0]);
+    }
+    save(hero) {
         if (hero.id) {
             return this.put(hero);
         }
         return this.post(hero);
-    };
-    HeroService.prototype.delete = function (hero) {
-        var headers = new http_1.Headers();
+    }
+    delete(hero) {
+        let headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.heroesUrl + "/" + hero.id;
+        let url = `${this.heroesUrl}/${hero.id}`;
         return this.http
             .delete(url, headers)
             .toPromise()
             .catch(this.handleError);
-    };
+    }
     // Add new Hero
-    HeroService.prototype.post = function (hero) {
-        var headers = new http_1.Headers({
+    post(hero) {
+        let headers = new http_1.Headers({
             'Content-Type': 'application/json' });
         return this.http
             .post(this.heroesUrl, JSON.stringify(hero), { headers: headers })
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(res => res.json().data)
             .catch(this.handleError);
-    };
+    }
     // Update existing Hero
-    HeroService.prototype.put = function (hero) {
-        var headers = new http_1.Headers();
+    put(hero) {
+        let headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.heroesUrl + "/" + hero.id;
+        let url = `${this.heroesUrl}/${hero.id}`;
         return this.http
             .put(url, JSON.stringify(hero), { headers: headers })
             .toPromise()
-            .then(function () { return hero; })
+            .then(() => hero)
             .catch(this.handleError);
-    };
-    HeroService.prototype.handleError = function (error) {
+    }
+    handleError(error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
-    };
-    HeroService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], HeroService);
-    return HeroService;
-}());
+    }
+};
+HeroService = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [http_1.Http])
+], HeroService);
 exports.HeroService = HeroService;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

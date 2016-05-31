@@ -8,36 +8,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var dashboard_component_1 = require('./dashboard.component');
-var heroes_component_1 = require('./heroes.component');
-var hero_detail_component_1 = require('./hero-detail.component');
-var hero_service_1 = require('./hero.service');
-var AppComponent = (function () {
-    function AppComponent() {
+const core_1 = require('@angular/core');
+const router_deprecated_1 = require('@angular/router-deprecated');
+const dashboard_component_1 = require('./dashboard.component');
+const heroes_component_1 = require('./heroes.component');
+const hero_detail_component_1 = require('./hero-detail.component');
+const hero_service_1 = require('./hero.service');
+let AppComponent = class AppComponent {
+    constructor() {
         this.title = 'Tour of Heroes';
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-            styleUrls: ['app/app.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [
-                router_deprecated_1.ROUTER_PROVIDERS,
-                hero_service_1.HeroService,
-            ]
-        }),
-        router_deprecated_1.RouteConfig([
-            { path: '/dashboard', name: 'Dashboard', component: dashboard_component_1.DashboardComponent, useAsDefault: true },
-            { path: '/detail/:id', name: 'HeroDetail', component: hero_detail_component_1.HeroDetailComponent },
-            { path: '/heroes', name: 'Heroes', component: heroes_component_1.HeroesComponent }
-        ]), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
-}());
+};
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'my-app',
+        template: `
+    <h1>{{title}}</h1>
+    <nav>
+      <a [routerLink]="['Dashboard']">Dashboard</a>
+      <a [routerLink]="['Heroes']">Heroes</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+        styleUrls: ['app/app.component.css'],
+        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+        providers: [
+            router_deprecated_1.ROUTER_PROVIDERS,
+            hero_service_1.HeroService,
+        ]
+    }),
+    router_deprecated_1.RouteConfig([
+        { path: '/dashboard', name: 'Dashboard', component: dashboard_component_1.DashboardComponent, useAsDefault: true },
+        { path: '/detail/:id', name: 'HeroDetail', component: hero_detail_component_1.HeroDetailComponent },
+        { path: '/heroes', name: 'Heroes', component: heroes_component_1.HeroesComponent }
+    ]), 
+    __metadata('design:paramtypes', [])
+], AppComponent);
 exports.AppComponent = AppComponent;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
