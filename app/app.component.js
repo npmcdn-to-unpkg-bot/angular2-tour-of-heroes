@@ -8,8 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// primary angular library module from which we get most of what we need
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+// The import statement tells the system it can get an AppComponent from a module named app.component located in a neighboring file
+// The module name (AKA module id) is often the same as the filename without its extension
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');

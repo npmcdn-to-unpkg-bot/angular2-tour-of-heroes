@@ -1,6 +1,10 @@
+// primary angular library module from which we get most of what we need
 import { Component } from '@angular/core';
+
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
+// The import statement tells the system it can get an AppComponent from a module named app.component located in a neighboring file
+// The module name (AKA module id) is often the same as the filename without its extension
 import { DashboardComponent }  from './dashboard.component';
 import { HeroesComponent }     from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -29,6 +33,8 @@ import { HeroService }         from './hero.service';
   { path: '/detail/:id', name: 'HeroDetail', component: HeroDetailComponent },
   { path: '/heroes',     name: 'Heroes',     component: HeroesComponent }
 ])
+
+// export tells TypeScript that this is a module whose AppComponent class is public and accessible to other modules of the application
 export class AppComponent {
   title = 'Tour of Heroes';
 }
